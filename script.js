@@ -7,7 +7,16 @@ const buttons = document.querySelectorAll("button");
 // 3. Add a click event to each button
 buttons.forEach(button => {
     button.addEventListener("click", () => {
-        const value = button.textContent; // The text on the button (e.g. "7", "+", "=")
+      let value;
+      if (button.textContent === "÷") {
+        value = "/";
+      }
+      else if (button.textContent === "×") {
+        value = "*";
+      }
+      else {
+        value = button.textContent; // The text on the button (e.g. "7", "+", "=")
+      }
 
         // 4. Handle the clear button
         if (value === "C") {
