@@ -4,6 +4,12 @@ A simple calculator built using **HTML, CSS, and vanilla JavaScript**.
 This project was created as a learning exercise to understand JavaScript fundamentals,
 DOM manipulation, and basic application logic.
 
+## Live Demo
+
+🔗 https://senzosithole.github.io/Web-Calculator/
+
+
+
 ---
 
 ## 🚀 Features
@@ -35,8 +41,3 @@ Acode-Test-Site/
 ├── script.js 
 └── README.md
 ```
-
-## Live Demo
-
-🔗 https://senzosithole.github.io/Web-Calculator/
-
