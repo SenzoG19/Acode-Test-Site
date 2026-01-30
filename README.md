@@ -1,2 +1,35 @@
-# Acode-Test-Site
-trying to see how far I can push my phone with regards to coding 
+# Calculator Web App
+
+A simple calculator built using **HTML, CSS, and vanilla JavaScript**.  
+This project was created as a learning exercise to understand JavaScript fundamentals,
+DOM manipulation, and basic application logic.
+
+---
+
+## 🚀 Features
+
+- Basic arithmetic operations (`+`, `−`, `×`, `÷`)
+- Decimal number support
+- Clear (`C`) functionality
+- Handles calculations cleanly after pressing equals
+- Input validation to prevent invalid expressions
+- Responsive layout suitable for mobile and desktop
+
+---
+
+## 🛠️ Technologies Used
+
+- HTML5
+- CSS3
+- Vanilla JavaScript
+- Git & GitHub
+- Acode + Termux (Android development environment)
+
+---
+
+## 📂 Project Structure
+Acode-Test-Site/ 
+├── index.html 
+├── styles.css 
+├── script.js 
+└── README.md
