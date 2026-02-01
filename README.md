@@ -28,7 +28,7 @@ This calculator is currently under active development.
 Core functionality is implemented, with additional features and refinements planned.
 
 Planned improvements include:
-- Backspace / delete button
+- Backspace / delete button (WIP)
 - Operator validation
 - Keyboard input support
 - UI refinements
