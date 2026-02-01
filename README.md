@@ -20,8 +20,18 @@ DOM manipulation, and basic application logic.
 - Handles calculations cleanly after pressing equals
 - Input validation to prevent invalid expressions
 - Responsive layout suitable for mobile and desktop
-
 ---
+
+## 🚧 Project Status: Work in Progress
+
+This calculator is currently under active development.  
+Core functionality is implemented, with additional features and refinements planned.
+
+Planned improvements include:
+- Backspace / delete button
+- Operator validation
+- Keyboard input support
+- UI refinements
 
 ## 🛠️ Technologies Used
 

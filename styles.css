@@ -75,8 +75,8 @@ button:active {
     background: #555;
 }
 
-#decimal_point {
-    
+#decimal {
+    background: green;
 }
 
 button.operator {
@@ -89,7 +89,6 @@ button.operator:hover {
 
 button.equals {
     background: #1a73e8;
-    grid-column: span 1;
 }
 
 button.equals:hover {

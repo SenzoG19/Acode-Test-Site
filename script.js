@@ -7,63 +7,82 @@ const buttons = document.querySelectorAll("button");
 let justCalculated = false;
 let value;
 
+// Handle decimal logic and some if not all edge cases (e.g ".3" = "0.3")
+function handleDecimal(value, screenValue) {
+  // If not a decimal, return as-is
+  if (value !== ".") return value;
+
+  // If screen is empty → start number
+  if (screenValue === "") return "0.";
+
+  const lastChar = screenValue.slice(-1);
+  const operators = "+-÷×";
+
+  // If last char is an operator → start new number
+  if (operators.includes(lastChar)) return "0.";
+
+  // Split by operators to get current number
+  const parts = screenValue.split(/[+\-÷×]/);
+  const currentNum = parts[parts.length - 1];
+
+  // If current number already has a decimal → block
+  if (currentNum.includes(".")) return null;
+
+  // Otherwise, allow decimal
+  return ".";
+}
+
 // 3. Add a click event to each button
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     value = button.textContent; // The text on the button (e.g. "7", "+", "=")
 
-    function handleDecimal() {
-      if (value == "." && screen.value == "") {
-        value = "0.";
-      }
-      else if (value === ".") {
-        let expressionParts = screen.value.split(/[+\-*/]/);
-        let currentNum = expressionParts[expressionParts.length - 1];
-        if (currentNum.includes(".")) {
-          value = "";
-        }
-        else {
-          value = ".";
-        }
-      }
-      return;
-    }
-
     if (justCalculated === true) {
+      // Avoid entering the equal sign ("=") as text into the screen after calculation
+      if (value === "=") return;
+      // This is to check if the expression should continue or start a new one
+      // If the input is an operator or decimal, continue expression
+      // Else, start a new expression if the next input is a number
       if (!isNaN(value) || value === ".") {
-        screen.value = "";
-        handleDecimal();
         justCalculated = false;
-        screen.value += value;
+        screen.value = ""; //Clear screen first if input is a number
+        const result = handleDecimal(value, screen.value);
+        if (result === null) return;
+        screen.value += result;
       } else if (value === "C") {
+        justCalculated = false;
         screen.value = "";
-        justCalculated = false;
       } else {
-        handleDecimal();
-        screen.value += value;
+        const result = handleDecimal(value, screen.value);
         justCalculated = false;
+        if (result === null) return;
+        screen.value += result;
       }
     } else {
       // 4. Handle the clear button
       if (value === "C") {
-        screen.value = "";
         justCalculated = false;
+        screen.value = "";
       }
       // 5. Handle the equal button
       else if (value === "=") {
         try {
+          justCalculated = true;
           screen.value = screen.value.replaceAll("÷", "/").replaceAll("×", "*");
           screen.value = eval(screen.value); // Evaluate math expression
-          justCalculated = true;
         } catch {
           screen.value = "Error";
         }
       }
       // 6. Otherwise, add the button's text to the screen
       else {
-        handleDecimal();
-        screen.value += value;
+        const result = handleDecimal(value, screen.value);
+        if (result === null) return;
+        screen.value += result;
       }
     }
   });
 });
+
+
+//Next feature is a delete button
