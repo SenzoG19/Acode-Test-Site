@@ -126,7 +126,6 @@ buttons.forEach(button => {
 // --------------------------STILL REFACTORING SO I WILL NOT BE REMOVING THE BELOW CODE SOON-------------------
 
 
-
     //   value = button.textContent; // The text on the button (e.g. "7", "+", "=")
 
     //   if (justCalculated === true) {
